@@ -2,7 +2,7 @@
 <template>
 	<uid>org.bayrell.ubuntu</uid>
 	<name>Ubuntu</name>
-	<version>focal-20220426-1</version>
+	<version>focal-1</version>
 	<date>2022-05-18T17:32:00+06:00</date>
 	<maintainer>Ildar &lt;ildar@bayrell.org&gt;</maintainer>
 	<marketplace>https://cloud.bayrell.org/</marketplace>
@@ -17,7 +17,7 @@
 	<yaml>
 		<services>
 			<_var_app_name_>
-				<image>docker.io/bayrell/ubuntu:focal-20220426-1</image>
+				<image>docker.io/bayrell/ubuntu:focal-1</image>
 			</_var_app_name_>
 		</services>
 	</yaml>

@@ -6,7 +6,7 @@ BASE_PATH=`dirname $SCRIPT_PATH`
 
 RETVAL=0
 IMAGE="ubuntu"
-VERSION="focal-20220426"
+VERSION="focal"
 SUBVERSION=1
 TAG=`date '+%Y%m%d_%H%M%S'`
 
