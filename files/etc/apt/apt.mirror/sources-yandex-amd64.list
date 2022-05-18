@@ -1,0 +1,24 @@
+deb https://mirror.yandex.ru/ubuntu/ focal main restricted
+deb https://mirror.yandex.ru/ubuntu/ focal-updates main restricted
+deb https://mirror.yandex.ru/ubuntu/ focal universe
+deb https://mirror.yandex.ru/ubuntu/ focal-updates universe
+deb https://mirror.yandex.ru/ubuntu/ focal multiverse
+deb https://mirror.yandex.ru/ubuntu/ focal-updates multiverse
+deb https://mirror.yandex.ru/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirror.yandex.ru/ubuntu/ focal-security main restricted
+deb https://mirror.yandex.ru/ubuntu/ focal-security universe
+deb https://mirror.yandex.ru/ubuntu/ focal-security multiverse
+
+# deb-src https://mirror.yandex.ru/ubuntu/ focal main restricted
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-updates main restricted
+# deb-src https://mirror.yandex.ru/ubuntu/ focal universe
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-updates universe
+# deb-src https://mirror.yandex.ru/ubuntu/ focal multiverse
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-updates multiverse
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-security main restricted
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-security universe
+# deb-src https://mirror.yandex.ru/ubuntu/ focal-security multiverse
+
+# deb http://archive.canonical.com/ubuntu focal partner
+# deb-src http://archive.canonical.com/ubuntu focal partner
