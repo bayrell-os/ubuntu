@@ -36,6 +36,16 @@ case "$1" in
 			--file stages/Dockerfile0 --build-arg ARCH=amd64 --build-arg APT_MIRROR=$APT_MIRROR
 	;;
 	
+	stage0-arm64v8)
+		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-arm64v8 \
+			--file stages/Dockerfile0 --build-arg ARCH=arm64v8 --build-arg APT_MIRROR=$APT_MIRROR
+	;;
+	
+	stage0-arm32v7)
+		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-arm32v7 \
+			--file stages/Dockerfile0 --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR
+	;;
+	
 	amd64)
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-amd64 \
 			--file stages/Dockerfile --build-arg ARCH=amd64 --build-arg APT_MIRROR=$APT_MIRROR
@@ -87,7 +97,7 @@ case "$1" in
 	;;
 	
 	*)
-		echo "Usage: $0 {download|all|amd64|arm64v8|arm32v7|test-amd64|test-arm64v8|test-arm32v7|stage0-amd64}"
+		echo "Usage: $0 {all|amd64|arm64v8|arm32v7|test-amd64|test-arm64v8|test-arm32v7|stage0-amd64|stage0-arm64v8|stage0-arm32v7}"
 		RETVAL=1
 
 esac

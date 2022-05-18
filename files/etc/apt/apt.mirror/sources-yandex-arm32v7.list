@@ -1,0 +1,24 @@
+deb https://mirror.yandex.ru/ubuntu-ports/ focal main restricted
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-updates main restricted
+deb https://mirror.yandex.ru/ubuntu-ports/ focal universe
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-updates universe
+deb https://mirror.yandex.ru/ubuntu-ports/ focal multiverse
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-updates multiverse
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-backports main restricted universe multiverse
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-security main restricted
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-security universe
+deb https://mirror.yandex.ru/ubuntu-ports/ focal-security multiverse
+
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal main restricted
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-updates main restricted
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal universe
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-updates universe
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal multiverse
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-updates multiverse
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-backports main restricted universe multiverse
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-security main restricted
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-security universe
+# deb-src https://mirror.yandex.ru/ubuntu-ports/ focal-security multiverse
+
+# deb http://archive.canonical.com/ubuntu-ports focal partner
+# deb-src http://archive.canonical.com/ubuntu-ports focal partner

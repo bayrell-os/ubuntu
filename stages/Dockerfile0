@@ -10,5 +10,17 @@ COPY files/etc/apt /etc/apt
 RUN cd ~; \
 	export DEBIAN_FRONTEND='noninteractive'; \
 	/etc/apt/apt.mirror/mirror.install.sh; \
+	apt-get update; \
+	apt-get install -y --no-install-recommends apt-utils locales ca-certificates; \
+	/etc/apt/apt.mirror/mirror.restore.sh; \
+	apt-get clean all; \
+	ln -snf /usr/share/zoneinfo/Asia/Almaty /etc/localtime; \
+	echo "Asia/Almaty" > /etc/timezone; \
+	locale-gen en_US en_US.UTF-8 ru_RU.UTF-8; \
+	update-locale LANG=en_US.utf8 LANGUAGE=en_US:en; \
+	echo "LANG="en_US.utf8" \n\
+LANGUAGE="en_US:en" \n\
+export LANG \n\
+export LANGUAGE\n" >> /etc/bash.bashrc; \
 	echo 'Ok'
-
+	
