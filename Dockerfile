@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-FROM ${ARCH}/ubuntu:focal-20220426
+FROM ${ARCH}/ubuntu:jammy-20220815
 
 ARG ARCH
 ENV ARCH=${ARCH}
