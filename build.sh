@@ -30,9 +30,10 @@ case "$1" in
 	;;
 	
 	test-arm32v7)
-		export DOCKER_DEFAULT_PLATFORM=linux/arm32/v7
+		export DOCKER_DEFAULT_PLATFORM=linux/arm/v7
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-arm32v7 \
-			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR
+			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR \
+			--platform linux/arm/v7
 	;;
 	
 	stage0-amd64)
@@ -64,10 +65,10 @@ case "$1" in
 	;;
 	
 	arm32v7)
-		export DOCKER_DEFAULT_PLATFORM=linux/arm32/v7
+		export DOCKER_DEFAULT_PLATFORM=linux/arm/v7
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-arm32v7 \
 			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR \
-			--platform linux/arm32/v7
+			--platform linux/arm/v7
 	;;
 	
 	manifest)
