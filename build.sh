@@ -17,16 +17,20 @@ fi
 case "$1" in
 	
 	test-amd64)
+		DOCKER_DEFAULT_PLATFORM=linux/amd64 \
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-amd64 \
 			--file Dockerfile --build-arg ARCH=amd64 --build-arg APT_MIRROR=$APT_MIRROR
 	;;
 	
 	test-arm64v8)
+		export DOCKER_DEFAULT_PLATFORM=linux/arm64/v8
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-arm64v8 \
-			--file Dockerfile --build-arg ARCH=arm64v8 --build-arg APT_MIRROR=$APT_MIRROR
+			--file Dockerfile --build-arg ARCH=arm64v8 --build-arg APT_MIRROR=$APT_MIRROR \
+			--platform linux/arm64/v8
 	;;
 	
 	test-arm32v7)
+		export DOCKER_DEFAULT_PLATFORM=linux/arm32/v7
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-$TAG-arm32v7 \
 			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR
 	;;
@@ -47,18 +51,23 @@ case "$1" in
 	;;
 	
 	amd64)
+		export DOCKER_DEFAULT_PLATFORM=linux/amd64
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-amd64 \
 			--file Dockerfile --build-arg ARCH=amd64 --build-arg APT_MIRROR=$APT_MIRROR
 	;;
 	
 	arm64v8)
+		export DOCKER_DEFAULT_PLATFORM=linux/arm64/v8
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-arm64v8 \
-			--file Dockerfile --build-arg ARCH=arm64v8 --build-arg APT_MIRROR=$APT_MIRROR
+			--file Dockerfile --build-arg ARCH=arm64v8 --build-arg APT_MIRROR=$APT_MIRROR \
+			--platform linux/arm64/v8
 	;;
 	
 	arm32v7)
+		export DOCKER_DEFAULT_PLATFORM=linux/arm32/v7
 		docker build ./ -t bayrell/$IMAGE:$VERSION-$SUBVERSION-arm32v7 \
-			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR
+			--file Dockerfile --build-arg ARCH=arm32v7 --build-arg APT_MIRROR=$APT_MIRROR \
+			--platform linux/arm32/v7
 	;;
 	
 	manifest)
