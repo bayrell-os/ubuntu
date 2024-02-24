@@ -7,7 +7,7 @@ BASE_PATH=`dirname $SCRIPT_PATH`
 RETVAL=0
 IMAGE="ubuntu"
 VERSION="jammy"
-SUBVERSION=1
+SUBVERSION=2
 TAG=`date '+%Y%m%d_%H%M%S'`
 
 if [ "$APT_MIRROR" = "" ]; then
@@ -97,6 +97,48 @@ case "$1" in
 			--amend bayrell/$IMAGE:$VERSION-arm64v8 \
 			--amend bayrell/$IMAGE:$VERSION-arm32v7
 		docker manifest push bayrell/$IMAGE:$VERSION
+	;;
+	
+	upload-github)
+		docker tag bayrell/$IMAGE:$VERSION-$SUBVERSION-arm64v8 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm64v8
+		
+		docker tag bayrell/$IMAGE:$VERSION-$SUBVERSION-arm32v7 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm32v7
+		
+		docker tag bayrell/$IMAGE:$VERSION-$SUBVERSION-amd64 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-amd64
+		
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-amd64
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm32v7
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm64v8
+		
+		docker manifest create --amend \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-amd64 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm32v7 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION-arm64v8
+		docker manifest push --purge ghcr.io/bayrell-os/$IMAGE:$VERSION-$SUBVERSION
+		
+		docker tag bayrell/$IMAGE:$VERSION-arm64v8 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-arm64v8
+		
+		docker tag bayrell/$IMAGE:$VERSION-arm32v7 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-arm32v7
+		
+		docker tag bayrell/$IMAGE:$VERSION-amd64 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-amd64
+		
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-amd64
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-arm32v7
+		docker push ghcr.io/bayrell-os/$IMAGE:$VERSION-arm64v8
+		
+		docker manifest create --amend \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-amd64 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-arm32v7 \
+			ghcr.io/bayrell-os/$IMAGE:$VERSION-arm64v8
+		docker manifest push --purge ghcr.io/bayrell-os/$IMAGE:$VERSION
 	;;
 	
 	all)

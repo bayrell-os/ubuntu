@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-FROM ${ARCH}/ubuntu:jammy-20220815
+FROM ${ARCH}/ubuntu:jammy-20240212
 
 ARG ARCH
 ENV ARCH=${ARCH}
@@ -30,8 +30,7 @@ RUN cd ~; \
 	apt-get clean all; \
 	echo 'Ok'
 
-COPY files/etc /etc
-COPY files/root /root
+COPY files /
 RUN cd ~; \
 	chmod +x /root/run.sh; \
 	echo "Ok"
